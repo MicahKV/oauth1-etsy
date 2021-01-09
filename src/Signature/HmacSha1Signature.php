@@ -3,6 +3,7 @@
 namespace Gentor\OAuth1Etsy\Client\Signature;
 
 use GuzzleHttp\Psr7\Uri;
+use Psr\Http\Message\UriInterface;
 use League\OAuth1\Client\Signature\HmacSha1Signature as Signature;
 
 class HmacSha1Signature extends Signature
@@ -17,7 +18,7 @@ class HmacSha1Signature extends Signature
      *
      * @return string
      */
-    protected function baseString(Uri $url, $method = 'POST', array $parameters = array())
+    protected function baseString(UriInterface $url, $method = 'POST', array $parameters = array())
     {
         $baseString = rawurlencode($method) . '&';
 
